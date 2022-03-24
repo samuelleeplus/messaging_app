@@ -20,7 +20,9 @@ import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../typ
 import LinkingConfiguration from './LinkingConfiguration';
 
 import { SimpleLineIcons } from '@expo/vector-icons';
-
+import { MaterialIcons } from '@expo/vector-icons';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
+// Check here for icons ---> https://icons.expo.fyi/
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -82,16 +84,19 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      // initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        headerTitleStyle: {
+          color: Colors.light.tint
+        }
       }}>
       <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Messages',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="message-bulleted" size={24} color="purple" />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -111,10 +116,26 @@ function BottomTabNavigator() {
       <BottomTab.Screen
         name="TabTwo"
         component={TabTwoScreen}
-        options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
+        options= {({navigation}: RootTabScreenProps<'TabTwo'>) => ({
+          title: 'Calls',
+          tabBarIcon: ({ color }) => <MaterialIcons name="call" size={24} color="purple" />,
+          headerRight:()=>(
+            <Pressable
+              onPress={() => navigation.navigate('Modal')}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}>
+              <FontAwesome
+                name="info-circle"
+                size={25}
+                color={Colors[colorScheme].text}
+                style={{ marginRight: 15 }}
+              />
+            </Pressable>
+
+
+          )
+        })}
       />
     </BottomTab.Navigator>
   );
