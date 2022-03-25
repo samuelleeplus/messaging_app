@@ -6,6 +6,7 @@
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { exp } from 'react-native-reanimated';
 
 declare global {
   namespace ReactNavigation {
@@ -33,3 +34,27 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> = Composit
   BottomTabScreenProps<RootTabParamList, Screen>,
   NativeStackScreenProps<RootStackParamList>
 >;
+
+// user object
+export type User = {
+  id: String ; 
+  firstName : String ; 
+  lastName : String ; 
+  profileUri : String ;
+
+}
+
+export type Message = {
+  id: String ; 
+  content: String ; 
+  createdAt : number ; 
+}
+
+// chatroom can be between 2 people or more(group chats)
+export type ChatRoom = {
+  id: String; 
+  users : [User];
+  lastMessage: Message;
+
+
+}
