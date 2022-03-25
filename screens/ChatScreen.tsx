@@ -5,6 +5,8 @@ import MessageListItem from '../components/MessageListItem';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
+import ChatRooms from '../data/ChatRooms';
+
 // export default function TabOneScreen({ navigation }: RootTabScreenProps<'Messages'>) {
 //   return (
 //     <View style={styles.container}>
@@ -18,8 +20,7 @@ import { RootTabScreenProps } from '../types';
 export default function ChatScreen(){
 return(
     <View style = {styles.container}>
-      <MessageListItem chatRoom = {{lastMessage: {content: "Whats upp"}, id: 1 }}/>
-
+      <MessageListItem chatRoom = { ChatRooms[0]}/>
     </View>
 
 
