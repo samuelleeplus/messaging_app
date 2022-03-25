@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
+import { ColorSchemeName, Pressable, TouchableWithoutFeedback } from 'react-native';
 
 import { View } from "react-native";
 import Colors from '../constants/Colors';
@@ -74,19 +74,19 @@ function RootNavigator() {
       options={({route}) => ({
         title: route.params.firstName,  
         headerRight:() => (
-            <View style= {{
-              flexDirection :"row",
-              width : 90,
-              justifyContent: "space-between",
-              marginRight:5
-            }
-            }>
-              <FontAwesome5 name = "video" size= {22} color= {'white'}/>
-              <MaterialIcons name = "call" size= {22} color= {'white'}/>
-              <MaterialCommunityIcons name = "dots-vertical" size= {22} color= {'white'}/>
-            </View>
-
-
+        // <TouchableWithoutFeedback onPress={onClick}>
+                <View style= {{
+                  flexDirection :"row",
+                  width : 90,
+                  justifyContent: "space-between",
+                  marginRight:5
+                }
+                }>
+                  <FontAwesome5 name = "video" size= {22} color= {'white'}/>
+                  <MaterialIcons name = "call" size= {22} color= {'white'}/>
+                  <MaterialCommunityIcons name = "dots-vertical" size= {22} color= {'white'}/>
+                </View>
+          // </TouchableWithoutFeedback>
         )
       })} 
     />
