@@ -1,10 +1,17 @@
 import React from 'react';
-import { View } from '../Themed';
+import { View, Text } from '../Themed';
+import { ChatRoom } from '../../types';
 
-const MessageListItem = (chatRoom : ChatRoom) => {
+
+export type ChatListItemProps = {
+    chatRoom: ChatRoom ; 
+}
+
+const MessageListItem = (props : ChatListItemProps) => {
+    const {chatRoom} = props ; 
     return (
         <View>
-
+            <Text>{chatRoom.lastMessage.content}</Text>
         </View>
     )
 
