@@ -12,12 +12,20 @@ const MessageListItem = (props : ChatListItemProps) => {
     const {chatRoom} = props ; 
     // for initial UI testing purpose, assume that 0th index user in users array (object) is me, and the other person is 1st index in array  
     const user = chatRoom.users[1];
-
-    console.log(chatRoom.users[1])
+    // console.log(chatRoom.users[1])
     return (
-        <View>
-            <Image source = {{uri:user.profileUri}} style = {styles.avatar} />
-            <Text>{chatRoom.lastMessage.content}</Text>
+        <View style = {styles.container}>
+            <View style = {styles.leftContainer}>
+                <Image source = {{uri:user.profileUri}} style = {styles.avatar} />
+                <View style = {styles.midContainer}>
+                    <Text>{user.firstName}</Text>
+                    <Text>{chatRoom.lastMessage.content}</Text>
+                </View>
+            </View>
+            <View>
+                {/* <Text>{chatRoom.lastMessage.createdAt}</Text> */}
+                <Text>Yesterday</Text>
+            </View>
         </View>
     )
 
