@@ -48,6 +48,7 @@ export type Message = {
   id: String ; 
   content: String ; 
   createdAt : String ; 
+  user: User; 
 }
 
 // chatroom can be between 2 people or more(group chats)
