@@ -53,6 +53,6 @@ export type Message = {
 // chatroom can be between 2 people or more(group chats)
 export type ChatRoom = {
   id: String; 
-  users : [User];
+  users : User[];
   lastMessage: Message;
 }
