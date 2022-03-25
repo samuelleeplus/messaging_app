@@ -18,13 +18,13 @@ const MessageListItem = (props : ChatListItemProps) => {
             <View style = {styles.leftContainer}>
                 <Image source = {{uri:user.profileUri}} style = {styles.avatar} />
                 <View style = {styles.midContainer}>
-                    <Text>{user.firstName}</Text>
-                    <Text>{chatRoom.lastMessage.content}</Text>
+                    <Text style = {styles.username}>{user.firstName}</Text>
+                    <Text style = {styles.lastMessage}>{chatRoom.lastMessage.content}</Text>
                 </View>
             </View>
             <View>
                 {/* <Text>{chatRoom.lastMessage.createdAt}</Text> */}
-                <Text>Yesterday</Text>
+                <Text style = {styles.time}>Yesterday</Text>
             </View>
         </View>
     )

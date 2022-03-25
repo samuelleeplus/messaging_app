@@ -11,12 +11,36 @@ const styles = StyleSheet.create({
     leftContainer: {
         flexDirection: 'row',
     },
+
+    midContainer:{
+        justifyContent: "space-around"
+    },
+
+
     avatar: {
-        width: 50,
-        height: 50,
+        width: 60,
+        height: 60,
         marginRight: 10,
         marginHorizontal: 10,
+        borderRadius:50, 
+    },
+    username:{
+        fontWeight: "bold", 
+        fontSize: 16, 
+
+    },
+
+    lastMessage:{
+        fontSize: 15,
+        color: "grey"
+
+    }, 
+    time:{
+        marginRight: 10, 
+        fontSize: 15, 
+        color: "grey"
     }
+
 })
 
 export default styles; 
