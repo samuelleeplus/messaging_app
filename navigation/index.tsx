@@ -3,13 +3,14 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
 
+import { View } from "react-native";
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
@@ -23,6 +24,7 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
 import { TabBarIndicator } from 'react-native-tab-view';
+import ChatRoomScreen from '../screens/ChatRoomScreen';
 // Check here for icons ---> https://icons.expo.fyi/
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -66,6 +68,29 @@ function RootNavigator() {
       )
     
     }} />
+    <Stack.Screen 
+      name="ChatRoom" 
+      component={ChatRoomScreen} 
+      options={({route}) => ({
+        title: route.params.firstName,  
+        headerRight:() => (
+            <View style= {{
+              flexDirection :"row",
+              width : 90,
+              justifyContent: "space-between",
+              marginRight:5
+            }
+            }>
+              <FontAwesome5 name = "video" size= {22} color= {'white'}/>
+              <MaterialIcons name = "call" size= {22} color= {'white'}/>
+              <MaterialCommunityIcons name = "dots-vertical" size= {22} color= {'white'}/>
+            </View>
+
+
+        )
+      })} 
+    />
+
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
