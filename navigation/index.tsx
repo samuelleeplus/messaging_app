@@ -22,6 +22,7 @@ import LinkingConfiguration from './LinkingConfiguration';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
+import { TabBarIndicator } from 'react-native-tab-view';
 // Check here for icons ---> https://icons.expo.fyi/
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -84,19 +85,26 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      // initialRouteName="TabOne"
+      initialRouteName="Messages"
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
-        headerTitleStyle: {
-          color: Colors.light.tint
+        tabBarActiveTintColor: Colors[colorScheme].background, 
+        tabBarStyle:{
+          backgroundColor: Colors[colorScheme].tint,
+          
         }
-      }}>
+        
+        
+      }
+      
+
+      }>
       <BottomTab.Screen
-        name="TabOne"
+      // name must be edited in types.tsx file
+        name="Messages" 
         component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
+        options={({ navigation }: RootTabScreenProps<'Messages'>) => ({
           title: 'Messages',
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="message-bulleted" size={24} color="purple" />,
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="message-bulleted" size={24} color="white" />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -114,11 +122,11 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name="Calls"
         component={TabTwoScreen}
-        options= {({navigation}: RootTabScreenProps<'TabTwo'>) => ({
+        options= {({navigation}: RootTabScreenProps<'Calls'>) => ({
           title: 'Calls',
-          tabBarIcon: ({ color }) => <MaterialIcons name="call" size={24} color="purple" />,
+          tabBarIcon: ({ color }) => <MaterialIcons name="call" size={30} color="white" />,
           headerRight:()=>(
             <Pressable
               onPress={() => navigation.navigate('Modal')}
