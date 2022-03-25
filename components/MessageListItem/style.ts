@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     },
     leftContainer: {
         flexDirection: 'row',
+        // paddingLeft:10,
     },
 
     midContainer:{
@@ -18,11 +19,12 @@ const styles = StyleSheet.create({
 
 
     avatar: {
-        width: 60,
-        height: 60,
+        width: 55,
+        height: 55,
         marginRight: 10,
         marginHorizontal: 10,
         borderRadius:50, 
+        marginBottom:10,
     },
     username:{
         fontWeight: "bold", 
@@ -32,8 +34,9 @@ const styles = StyleSheet.create({
 
     lastMessage:{
         fontSize: 15,
-        color: "grey"
-
+        color: "grey",
+        // width: '100%'
+        // flex: 1, 
     }, 
     time:{
         marginRight: 10, 
