@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginTop: 17,
         justifyContent: 'center',
-
+        alignItems : 'center'
     },
 
     mainContainer: {
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         marginRight: 15, 
         marginBottom: 10, 
         marginTop: 15, 
+
     },
 
     cameraContainer: {
@@ -54,7 +55,8 @@ const styles = StyleSheet.create({
         // marginRight: 10, 
         marginBottom: 10, 
         marginTop: 15, 
-        justifyContent: "center"
+        justifyContent: "center" , 
+
     },
     
 

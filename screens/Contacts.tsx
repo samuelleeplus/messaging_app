@@ -9,17 +9,7 @@ import ChatRooms from '../data/ChatRooms';
 import NewMessageButton from '../components/NewMessageButton';
 
 
-// export default function TabOneScreen({ navigation }: RootTabScreenProps<'Messages'>) {
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.title}>Tab One</Text>
-//       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-//       <EditScreenInfo path="/screens/ChatScreen.tsx" />
-//     </View>
-//   );
-// }
-
-export default function ChatScreen(){
+export default function Contacts(){
 return(
     <View style = {styles.container}>
       {/* <MessageListItem chatRoom = { ChatRooms[0]}/> */}
