@@ -5,7 +5,7 @@
  */
 import { FontAwesome, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme, DarkTheme, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable, TouchableWithoutFeedback } from 'react-native';
@@ -25,6 +25,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
 import { TabBarIndicator } from 'react-native-tab-view';
 import ChatRoomScreen from '../screens/ChatRoomScreen';
+import ContactsScreen from '../screens/ContactsScreen';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 // Check here for icons ---> https://icons.expo.fyi/
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -44,6 +46,13 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
+
+  const navigation = useNavigation(); 
+  
+  const onPress= () => {
+    navigation.navigate("Contacts");
+  }
+
   return (
 
     // screen header bar editing -> color
@@ -64,7 +73,9 @@ function RootNavigator() {
         headerShown: true, 
         title: "Falcon", 
         headerRight: ()=>(
-        <SimpleLineIcons name="note" size={24} color="black"/>
+
+              <SimpleLineIcons name="note" size={24} color="black"/>
+
       )
     
     }} />
@@ -90,6 +101,7 @@ function RootNavigator() {
         )
       })} 
     />
+      <Stack.Screen name="Contacts" component={ContactsScreen} options={{ title: 'Oops!' }} />
 
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
