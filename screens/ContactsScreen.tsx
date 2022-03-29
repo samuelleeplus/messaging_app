@@ -6,7 +6,8 @@ import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
 import ChatRooms from '../data/ChatRooms';
-import NewMessageButton from '../components/NewMessageButton';
+import Users from '../data/Users';
+import ContactListItem from '../components/ContactListItem';
 
 
 export default function Contacts(){
@@ -16,10 +17,9 @@ return(
       <FlatList 
         style = {{width: '100%'}}
         data = {ChatRooms}
-        renderItem = {({item}) => <MessageListItem chatRoom = {item}/>}
+        renderItem = {({item}) => <ContactListItem chatRoom = {item}/>}
         keyExtractor = {(item) => item.id}
       />
-      <NewMessageButton/>
     </View>
   );
 }

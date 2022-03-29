@@ -73,8 +73,14 @@ function RootNavigator() {
         headerShown: true, 
         title: "Falcon", 
         headerRight: ()=>(
-
+          <Pressable
+          onPress={() => navigation.navigate('Contacts')}
+          style={({ pressed }) => ({
+            opacity: pressed ? 0.5 : 1,
+          })}>
               <SimpleLineIcons name="note" size={24} color="black"/>
+          </Pressable>
+
 
       )
     
@@ -101,7 +107,7 @@ function RootNavigator() {
         )
       })} 
     />
-      <Stack.Screen name="Contacts" component={ContactsScreen} options={{ title: 'Oops!' }} />
+      <Stack.Screen name="Contacts" component={ContactsScreen} options={{ title: 'Write New Message' }} />
 
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
