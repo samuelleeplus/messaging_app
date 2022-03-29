@@ -183,8 +183,6 @@ function BottomTabNavigator() {
                 style={{ marginRight: 15 }}
               />
             </Pressable>
-
-
           )
         })}
       />
