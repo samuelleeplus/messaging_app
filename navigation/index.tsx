@@ -148,23 +148,23 @@ function BottomTabNavigator() {
         options={({ navigation }: RootTabScreenProps<'Messages'>) => ({
           title: 'Messages',
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="message-bulleted" size={24} color="white" />,
-          // headerRight: () => (
-          //   <Pressable
-          //     onPress={() => navigation.navigate('Modal')}
-          //     style={({ pressed }) => ({
-          //       opacity: pressed ? 0.5 : 1,
-          //     })}>
-          //     <FontAwesome
-          //       name="info-circle"
-          //       size={25}
-          //       color={Colors[colorScheme].text}
-          //       style={{ marginRight: 15 }}
-          //     />
-          //   </Pressable>
-          // ),
+          headerRight: () => (
+            <Pressable
+              onPress={() => navigation.navigate('Modal')}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}>
+              <FontAwesome
+                name="info-circle"
+                size={25}
+                color={Colors[colorScheme].text}
+                style={{ marginRight: 15 }}
+              />
+            </Pressable>
+          ),
         })}
       />
-      {/* <BottomTab.Screen
+      <BottomTab.Screen
         name="Calls"
         component={TabTwoScreen}
         options= {({navigation}: RootTabScreenProps<'Calls'>) => ({
@@ -187,7 +187,7 @@ function BottomTabNavigator() {
 
           )
         })}
-      /> */}
+      />
     </BottomTab.Navigator>
   );
 }
